@@ -456,13 +456,11 @@ body::before{
   display:block;
   height:100%;
   min-height:420px;
-  padding:0 !important;
-  background:transparent !important;
-  border-color:rgba(71,67,87,0.6);
+  cursor:pointer;
 }
-.module-card-spotlight > .pointer-events-none{
-  border-radius:inherit;
-  z-index:1;
+.module-spotlight-layer{
+  z-index:5;
+  mix-blend-mode:screen;
 }
 .module-card-spotlight:hover,
 .module-card:hover{ transform:translateY(-3px); border-color:rgba(0,212,232,0.35); }
@@ -486,7 +484,7 @@ body::before{
   left:-6.03%; top:-1.24%;
 }
 .module-art::before{
-  content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
+  content:""; position:absolute; inset:0; z-index:2; pointer-events:none;
   background:linear-gradient(180deg, rgba(5,5,31,0) 0%, rgba(5,5,31,0.3) 60%, rgba(5,5,31,0.95) 100%);
 }
 .art-juego::before{
@@ -497,7 +495,7 @@ body::before{
 }
 
 .module-overlay{
-  position:absolute; inset:0; z-index:2;
+  position:absolute; inset:0; z-index:10;
   padding:0 20px 25px;
   display:flex; flex-direction:column; justify-content:flex-end; gap:13px;
 }

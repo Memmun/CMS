@@ -1,14 +1,15 @@
 import { useApp } from '@/context/AppContext';
-import { CardSpotlight } from '@/components/ui/card-spotlight';
+import { CardSpotlightOverlay, useCardSpotlight } from '@/components/ui/card-spotlight';
 import { asset } from '@/lib/utils';
 import type { ModuleTipo } from '@/data/content';
 
 const MEMUN_SPOTLIGHT = {
-  color: '#12082a',
+  color: 'rgba(99, 53, 229, 0.72)',
   revealColors: [
     [99, 53, 229],
     [0, 212, 232],
   ] as number[][],
+  radius: 340,
 };
 
 type ModuleCardProps = {
@@ -35,16 +36,23 @@ function ModuleCard({
   cardClassName = '',
 }: ModuleCardProps) {
   const { getModuleMeta, openPreview } = useApp();
+  const { mouseX, mouseY, isHovering, handlers } = useCardSpotlight();
 
   return (
-    <CardSpotlight
-      className={`module-card module-card-spotlight ${cardClassName}`.trim()}
-      radius={320}
-      color={MEMUN_SPOTLIGHT.color}
-      revealColors={MEMUN_SPOTLIGHT.revealColors}
+    <div
+      className={`module-card module-card-spotlight group/module ${cardClassName}`.trim()}
+      {...handlers}
     >
-      <div className={`module-art ${artClass} relative z-20`}>
+      <div className={`module-art ${artClass}`}>
         <img className="module-bg" src={asset(image)} alt="" />
+        <CardSpotlightOverlay
+          mouseX={mouseX}
+          mouseY={mouseY}
+          isHovering={isHovering}
+          radius={MEMUN_SPOTLIGHT.radius}
+          color={MEMUN_SPOTLIGHT.color}
+          revealColors={MEMUN_SPOTLIGHT.revealColors}
+        />
         <div className={`module-overlay${artClass.includes('juego') ? ' overlay-juego' : ''}`}>
           <div className="module-name-row">
             <img className="module-type-icon" src={asset(icon)} alt="" />
@@ -52,13 +60,13 @@ function ModuleCard({
           </div>
           <p className={`module-desc${descMuted ? ' module-desc-muted' : ''}`}>{desc}</p>
           <div className="module-meta">{getModuleMeta(tipo)}</div>
-          <button type="button" className="cta-btn relative z-20" onClick={() => openPreview(tipo)}>
+          <button type="button" className="cta-btn" onClick={() => openPreview(tipo)}>
             <span className="cta-btn-label">{cta}</span>
             <img className="cta-btn-icon" src={asset('assets/icon-arrow-cta.svg')} alt="" />
           </button>
         </div>
       </div>
-    </CardSpotlight>
+    </div>
   );
 }
 
