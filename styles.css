@@ -340,9 +340,9 @@ body::before{
   content:""; position:absolute; inset:0; z-index:1;
   background:linear-gradient(180deg, rgba(5,5,31,0) 0%, rgba(5,5,31,0.3) 55%, rgba(5,5,31,0.95) 100%);
 }
-.art-novela{ background:url('assets/card-novela.png') center / cover no-repeat; background-position:center 22%; }
-.art-juego{ background:url('assets/card-juego.png') center / cover no-repeat; background-position:center 18%; }
-.art-wiki{ background:url('assets/card-wiki.png') center / cover no-repeat; background-position:center 24%; }
+.art-novela{ background:url('assets/card-novela.png') center / cover no-repeat; background-position:center 42%; }
+.art-juego{ background:url('assets/card-juego.png') center / cover no-repeat; background-position:center 38%; }
+.art-wiki{ background:url('assets/card-wiki.png') center / cover no-repeat; background-position:center top; }
 
 .module-overlay{
   position:relative; z-index:2;
@@ -571,9 +571,9 @@ a.cta-img-btn{ text-decoration:none; display:block; }
 
   .main{ padding:12px 14px 16px; }
   .hero-banner{ padding:22px 20px; }
-  .art-novela{ background-position:center 24%; }
-  .art-juego{ background-position:center 20%; }
-  .art-wiki{ background-position:center 26%; }
+  .art-novela{ background-position:center 45%; }
+  .art-juego{ background-position:center 40%; }
+  .art-wiki{ background-position:center 8%; }
 
   .modal-overlay{ padding:14px; }
   .modal{ max-height:88vh; padding:22px 18px; }
