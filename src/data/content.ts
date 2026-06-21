@@ -121,6 +121,12 @@ export const NAV_ITEMS: { id: SectionId; label: string; icon: string; mobileLabe
   { id: 'instagram', label: 'Instagram', icon: 'icon-instagram.svg' },
 ];
 
+export const VIDEO_DEMO = {
+  title: 'MEMUN — Narrativa transmedia',
+  embed: '3OLRDFf3Qj8',
+  url: 'https://www.youtube.com/watch?v=3OLRDFf3Qj8',
+};
+
 export const VISADOS = [
   { title: 'Visado 1 — TP 1', embed: '_PItfSn_6wA' },
   { title: 'Visado 2 — TP 1', embed: 'rKJi1EVHLz4' },

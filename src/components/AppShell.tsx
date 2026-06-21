@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useApp } from '@/context/AppContext';
-import { INSTAGRAM, NAV_ITEMS, VISADOS } from '@/data/content';
+import { INSTAGRAM, NAV_ITEMS, VIDEO_DEMO, VISADOS } from '@/data/content';
 import { asset } from '@/lib/utils';
 import { DashboardSection } from '@/components/sections/DashboardSection';
 import AnimatedProgressBar from '@/components/ui/smoothui/animated-progress-bar';
@@ -264,13 +264,23 @@ export function AppShell() {
               {section === 'video-demo' && (
                 <section id="section-video-demo">
                   <HeroBanner title="Video Demo" subtitle="Narrativa transmedia MEMUN en acción." />
-                  <div className="placeholder-box">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                      <polygon points="5 3 19 12 5 21 5 3" />
-                    </svg>
-                    <p className="placeholder-title">Video en producción</p>
-                    <p className="placeholder-desc">
-                      El video de la narrativa transmedia funcionando se publicará aquí cuando esté listo.
+                  <div className="video-demo-wrap">
+                    <article className="video-card">
+                      <h3 className="video-card-title">{VIDEO_DEMO.title}</h3>
+                      <div className="video-embed">
+                        <iframe
+                          src={`https://www.youtube.com/embed/${VIDEO_DEMO.embed}`}
+                          title={VIDEO_DEMO.title}
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          allowFullScreen
+                          loading="lazy"
+                        />
+                      </div>
+                    </article>
+                    <p className="embed-note">
+                      <a href={VIDEO_DEMO.url} target="_blank" rel="noopener noreferrer">
+                        Ver en YouTube ↗
+                      </a>
                     </p>
                   </div>
                 </section>
