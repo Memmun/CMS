@@ -36,7 +36,6 @@ function handleLogin(){
   if(!user || !pass){ errorEl.textContent = 'Ingresá usuario y contraseña para continuar.'; return; }
   errorEl.textContent = '';
   currentUser = { name: user.toUpperCase() };
-  document.getElementById('display-name').textContent = currentUser.name;
   document.getElementById('login-screen').style.display = 'none';
   document.getElementById('app-screen').style.display = 'block';
   renderAll();
@@ -72,6 +71,70 @@ function goSection(name){
   SECTIONS.forEach(s=>{
     document.getElementById('section-'+s).classList.toggle('hidden', s !== name);
   });
+  if(name === 'instagram') initInstagramFeed();
+}
+
+const INSTAGRAM = {
+  profile: 'https://www.instagram.com/memun.mavi2/',
+  username: 'memun.mavi2',
+  posts: [
+    'https://www.instagram.com/p/DZ1N_syjSvd/',
+    'https://www.instagram.com/p/DZ1M8ZKDegK/',
+    'https://www.instagram.com/p/DZ1MvNuDX6i/'
+  ]
+};
+
+let instagramFeedReady = false;
+
+function initInstagramFeed(){
+  if(instagramFeedReady) return;
+  instagramFeedReady = true;
+
+  const grid = document.getElementById('instagram-feed-grid');
+  const fallback = document.getElementById('instagram-feed-fallback');
+
+  if(INSTAGRAM.posts.length){
+    fallback.classList.add('hidden');
+    grid.classList.remove('hidden');
+    grid.innerHTML = INSTAGRAM.posts.map(url => `
+      <div class="instagram-post">
+        <blockquote
+          class="instagram-media"
+          data-instgrm-permalink="${url}"
+          data-instgrm-version="14"
+          style="background:#FFF;border:0;border-radius:16px;margin:0;max-width:100%;min-width:0;width:100%;"
+        ></blockquote>
+      </div>
+    `).join('');
+    loadInstagramEmbedScript(processInstagramEmbeds);
+    return;
+  }
+
+  const iframe = document.getElementById('instagram-profile-embed');
+  const loading = document.getElementById('instagram-feed-loading');
+  if(!iframe || iframe.src) return;
+
+  iframe.addEventListener('load', () => loading?.classList.add('hidden'), { once:true });
+  iframe.src = INSTAGRAM.profile + 'embed/';
+}
+
+function loadInstagramEmbedScript(cb){
+  if(window.instgrm){ cb(); return; }
+  const existing = document.getElementById('instagram-embed-script');
+  if(existing){
+    existing.addEventListener('load', cb, { once:true });
+    return;
+  }
+  const script = document.createElement('script');
+  script.id = 'instagram-embed-script';
+  script.async = true;
+  script.src = 'https://www.instagram.com/embed.js';
+  script.onload = cb;
+  document.body.appendChild(script);
+}
+
+function processInstagramEmbeds(){
+  if(window.instgrm && window.instgrm.Embeds) window.instgrm.Embeds.process();
 }
 
 function openExternal(url){

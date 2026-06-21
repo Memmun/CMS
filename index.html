@@ -15,9 +15,9 @@
 <div id="login-screen">
   <div class="login-card">
     <div class="brand-row">
-      <div class="logo-mark"><img src="assets/logo.png" alt="MEMUN" style="width:100%;height:100%;object-fit:contain;"></div>
-      <div>
-        <div class="brand-text-title">MEMUN</div>
+      <div class="logo-mark sidebar-logo"><img src="assets/logo-figma.png" alt="MEMUN"></div>
+      <div class="brand-wordmark">
+        <img class="brand-wordmark-img" src="assets/wordmark-memun.png" alt="MEMUN">
         <div class="brand-text-sub">Editor de memorias</div>
       </div>
     </div>
@@ -44,36 +44,36 @@
       <div class="sidebar-glow sidebar-glow-bottom"></div>
 
       <div class="sidebar-brand">
-        <div class="logo-mark"><img src="assets/logo.png" alt="MEMUN" style="width:100%;height:100%;object-fit:contain;"></div>
-        <div>
-          <div class="brand-text-title">MEMUN</div>
+        <div class="logo-mark sidebar-logo"><img src="assets/logo-figma.png" alt="MEMUN"></div>
+        <div class="brand-wordmark">
+          <img class="brand-wordmark-img" src="assets/wordmark-memun.png" alt="MEMUN">
           <div class="brand-text-sub">Editor de memorias</div>
         </div>
       </div>
 
       <nav class="sidebar-nav">
         <div class="nav-item active" data-section="dashboard" onclick="goSection('dashboard')">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <img class="nav-icon" src="assets/icon-bitacora.svg" alt="">
           Bitácora
         </div>
         <div class="nav-item" data-section="video-demo" onclick="goSection('video-demo')">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          <img class="nav-icon" src="assets/icon-video-demo.svg" alt="">
           Video Demo
         </div>
-        <div class="nav-item" data-section="visados" onclick="goSection('visados')">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          Visados
-        </div>
         <div class="nav-item" data-section="afiches" onclick="goSection('afiches')">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          <img class="nav-icon" src="assets/icon-afiches.svg" alt="">
           Afiches
         </div>
         <div class="nav-item" data-section="app" onclick="goSection('app')">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+          <img class="nav-icon" src="assets/icon-app.svg" alt="">
           App
         </div>
+        <div class="nav-item" data-section="visados" onclick="goSection('visados')">
+          <img class="nav-icon" src="assets/icon-visados.svg" alt="">
+          Visados
+        </div>
         <div class="nav-item" data-section="instagram" onclick="goSection('instagram')">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>
+          <img class="nav-icon" src="assets/icon-instagram.svg" alt="">
           Instagram
         </div>
       </nav>
@@ -85,7 +85,7 @@
             <div class="companion-name" id="companion-name">Luz</div>
           </div>
         </div>
-        <div class="sidebar-logout" onclick="handleLogout()">Log out</div>
+        <div class="sidebar-logout hidden-figma" onclick="handleLogout()">Log out</div>
       </div>
     </aside>
 
@@ -93,12 +93,12 @@
       <div class="app-panel">
         <div class="topbar">
           <div class="avance-pill">
-            <div class="avance-pill-top"><span>Avance total</span><b id="total-pct">0%</b></div>
+            <div class="avance-pill-top"><span>Avance Total</span><b id="total-pct">0%</b></div>
             <div class="pill-track"><div class="pill-fill" id="total-fill"></div></div>
           </div>
 
           <div class="stat-pill">
-            <svg viewBox="0 0 24 24" fill="none" stroke="var(--magenta)" stroke-width="2"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>
+            <img class="stat-icon" src="assets/icon-verdad.svg" alt="">
             <div class="stat-pill-body">
               <div class="stat-pill-top"><span>Verdad sobre Memun</span><b id="pct-verdad">0%</b></div>
               <div class="stat-track"><div class="stat-fill" id="fill-verdad" style="background:var(--magenta)"></div></div>
@@ -106,7 +106,7 @@
           </div>
 
           <div class="stat-pill">
-            <svg viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2"><path d="M12 2a7 7 0 0 0-7 7c0 3 1.5 4.5 2 6 .5 1.5.5 3 .5 3h9s0-1.5.5-3c.5-1.5 2-3 2-6a7 7 0 0 0-7-7z"/><path d="M9 21h6"/></svg>
+            <img class="stat-icon" src="assets/icon-memoria.svg" alt="">
             <div class="stat-pill-body">
               <div class="stat-pill-top"><span>Memoria personal</span><b id="pct-personal">0%</b></div>
               <div class="stat-track"><div class="stat-fill" id="fill-personal" style="background:var(--cyan)"></div></div>
@@ -115,13 +115,12 @@
 
           <div class="topbar-right">
             <div class="icon-btn">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="17" height="17"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+              <img class="icon-bell" src="assets/icon-bell.svg" alt="Notificaciones">
               <span class="notif-dot"></span>
             </div>
             <div class="account-chip" id="account-chip" onclick="toggleAccountMenu(event)">
               <div class="account-avatar"></div>
-              <div class="account-name" id="display-name">EMIREC_17</div>
-              <svg class="account-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m6 9 6 6 6-6"/></svg>
+              <div class="account-name" id="display-name">Luz</div>
             </div>
             <div class="account-dropdown" id="account-dropdown">
               <div class="account-dropdown-title">My Account</div>
@@ -137,16 +136,16 @@
         <div class="mobile-tabs">
           <div class="mobile-tab active" data-section="dashboard" onclick="goSection('dashboard')">Bitácora</div>
           <div class="mobile-tab" data-section="video-demo" onclick="goSection('video-demo')">Video</div>
-          <div class="mobile-tab" data-section="visados" onclick="goSection('visados')">Visados</div>
           <div class="mobile-tab" data-section="afiches" onclick="goSection('afiches')">Afiches</div>
           <div class="mobile-tab" data-section="app" onclick="goSection('app')">App</div>
+          <div class="mobile-tab" data-section="visados" onclick="goSection('visados')">Visados</div>
           <div class="mobile-tab" data-section="instagram" onclick="goSection('instagram')">Instagram</div>
         </div>
 
         <main class="main">
           <section id="section-dashboard">
+            <div class="dashboard-glow"></div>
             <div class="hero-banner">
-              <div class="hero-glow"></div>
               <div class="hero-title">Elige tu forma de acceso</div>
               <div class="hero-sub">Explorá la historia a través de múltiples medios.</div>
             </div>
@@ -154,31 +153,35 @@
             <div class="modules">
               <div class="module-card">
                 <div class="module-art art-novela">
+                  <img class="module-bg" src="assets/card-novela.png" alt="">
                   <div class="module-overlay">
                     <div class="module-name-row">
-                      <img src="assets/icon-novela.png" alt="" width="22" height="22">
+                      <img class="module-type-icon" src="assets/icon-novela.svg" alt="">
                       <div class="module-name">Novelas Gráficas</div>
                     </div>
                     <p class="module-desc">Explorá los cómics oficiales de MEMUN. Historias ilustradas que revelan nuevas perspectivas.</p>
                     <div class="module-meta" id="meta-novela">0 / 0 fragmentos leídos</div>
-                    <a class="cta-img-btn" href="https://caiofortega-bit.github.io/MEMUM/" target="_blank" rel="noopener noreferrer">
-                      <img src="assets/btn-ver.png" alt="Ver">
+                    <a class="cta-btn" href="https://caiofortega-bit.github.io/MEMUM/" target="_blank" rel="noopener noreferrer">
+                      <span class="cta-btn-label">VER</span>
+                      <img class="cta-btn-icon" src="assets/icon-arrow-cta.svg" alt="">
                     </a>
                   </div>
                 </div>
               </div>
 
-              <div class="module-card">
+              <div class="module-card module-card-juego">
                 <div class="module-art art-juego">
-                  <div class="module-overlay">
+                  <img class="module-bg" src="assets/card-juego.png" alt="">
+                  <div class="module-overlay overlay-juego">
                     <div class="module-name-row">
-                      <img src="assets/icon-juego.png" alt="" width="22" height="22">
+                      <img class="module-type-icon" src="assets/icon-juego.svg" alt="">
                       <div class="module-name">Videojuego</div>
                     </div>
-                    <p class="module-desc">Viví la experiencia interactiva. Tomá decisiones, completá misiones y desbloqueá recuerdos.</p>
+                    <p class="module-desc module-desc-muted">Viví la experiencia interactiva. Tomá decisiones, completá misiones y desbloqueá recuerdos.</p>
                     <div class="module-meta" id="meta-juego">0 / 0 misiones completadas</div>
-                    <button class="cta-img-btn" type="button" onclick="showComingSoon('El demo del videojuego estará disponible pronto.')">
-                      <img src="assets/btn-jugar.png" alt="Jugar">
+                    <button class="cta-btn" type="button" onclick="showComingSoon('El demo del videojuego estará disponible pronto.')">
+                      <span class="cta-btn-label">JUGAR</span>
+                      <img class="cta-btn-icon" src="assets/icon-arrow-cta.svg" alt="">
                     </button>
                   </div>
                 </div>
@@ -186,15 +189,17 @@
 
               <div class="module-card">
                 <div class="module-art art-wiki">
+                  <img class="module-bg" src="assets/card-wiki.png" alt="">
                   <div class="module-overlay">
                     <div class="module-name-row">
-                      <img src="assets/icon-wiki.png" alt="" width="22" height="22">
+                      <img class="module-type-icon" src="assets/icon-wiki.svg" alt="">
                       <div class="module-name">Wikimemun</div>
                     </div>
-                    <p class="module-desc">Accedé a la historia oficial de MEMUN. Explorá aldeas, personajes, tecnología y más.</p>
+                    <p class="module-desc module-desc-muted">Accedé a la historia oficial de MEMUN. Explorá aldeas, personajes, tecnología y más.</p>
                     <div class="module-meta" id="meta-wiki">0 / 0 entradas consultadas</div>
-                    <a class="cta-img-btn" href="https://gonzalorceccato.github.io/wikimemun/#" target="_blank" rel="noopener noreferrer">
-                      <img src="assets/btn-crear.png" alt="Editar">
+                    <a class="cta-btn" href="https://gonzalorceccato.github.io/wikimemun/#" target="_blank" rel="noopener noreferrer">
+                      <span class="cta-btn-label">EDITAR</span>
+                      <img class="cta-btn-icon" src="assets/icon-arrow-cta.svg" alt="">
                     </a>
                   </div>
                 </div>
@@ -202,8 +207,11 @@
             </div>
 
             <div class="footer-note">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-              <div><b>MEMUN TE OBSERVA</b> — Cada elección modifica tu comprensión. No existe una única verdad. Explorá, conectá, recordá.</div>
+              <img class="footer-info-icon" src="assets/icon-info.svg" alt="">
+              <p class="footer-note-text">
+                <span class="footer-note-label">MEMUN TE OBSERVA </span>
+                <span class="footer-note-body">Cada elección modifica tu comprensión. No existe una única verdad. Explorá, conectá, recordá.</span>
+              </p>
             </div>
           </section>
 
@@ -286,15 +294,35 @@
               <div class="hero-title">Instagram</div>
               <div class="hero-sub">Seguí el universo MEMUN en redes.</div>
             </div>
-            <div class="link-card">
-              <div class="link-card-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>
+
+            <div class="instagram-panel">
+              <div class="instagram-profile-bar">
+                <img class="instagram-profile-icon" src="assets/icon-instagram.svg" alt="">
+                <div class="instagram-profile-copy">
+                  <p class="instagram-profile-user">@memun.mavi2</p>
+                  <p class="instagram-profile-desc">Novedades, arte y avances del proyecto narrativo transmedia.</p>
+                </div>
+                <a class="link-card-btn instagram-profile-link" href="https://www.instagram.com/memun.mavi2/" target="_blank" rel="noopener noreferrer">Visitar perfil ↗</a>
               </div>
-              <div class="link-card-body">
-                <p class="link-card-title">@memun.mavi2</p>
-                <p class="link-card-desc">Novedades, arte y avances del proyecto narrativo transmedia.</p>
-                <a class="link-card-btn" href="https://www.instagram.com/memun.mavi2/" target="_blank" rel="noopener noreferrer">Visitar perfil ↗</a>
+
+              <div id="instagram-feed-grid" class="instagram-feed-grid hidden"></div>
+
+              <div class="instagram-feed-frame" id="instagram-feed-fallback">
+                <p class="instagram-feed-loading" id="instagram-feed-loading">Cargando publicaciones…</p>
+                <iframe
+                  id="instagram-profile-embed"
+                  title="Feed de @memun.mavi2 en Instagram"
+                  loading="lazy"
+                  allowtransparency="true"
+                  scrolling="no"
+                  allow="encrypted-media"
+                ></iframe>
               </div>
+
+              <p class="embed-note instagram-feed-note">
+                Publicaciones en vivo desde Instagram. Si no cargan, abrí el
+                <a href="https://www.instagram.com/memun.mavi2/" target="_blank" rel="noopener noreferrer">perfil @memun.mavi2 ↗</a>.
+              </p>
             </div>
           </section>
         </main>
