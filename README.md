@@ -64,9 +64,11 @@ React 19, Vite 6, TypeScript, Tailwind CSS v4, tsparticles, Motion. Google Fonts
 
 ## GitHub Pages
 
-El deploy es automático vía GitHub Actions al pushear a `main`. En el repo:
+El deploy publica el **build compilado** en la raíz del repo (`index.html` + `assets/`) para que GitHub Pages funcione con la configuración actual (**Deploy from branch → `main` / root**).
 
-**Settings → Pages → Build and deployment → Source: GitHub Actions**
+Cada push a `main` dispara el workflow que compila React y actualiza esos archivos automáticamente.
+
+Para desarrollo local usá `npm run dev` (restaura `index.dev.html` antes de levantar Vite).
 
 La URL quedará en `https://memmun.github.io/CMS/`.
 

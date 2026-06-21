@@ -5,4 +5,5 @@ desktop.ini
 .cursor/
 node_modules/
 dist/
+.vite/
 *.local
