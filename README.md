@@ -1,56 +1,63 @@
-# MEMUN — Gestor de Contenidos Narrativos
+# MEMUN — Editor de Memorias
 
-Prototipo funcional de un panel (CMS) para la gestión y exploración de contenido narrativo transmedia, desarrollado como trabajo práctico.
+Prototipo funcional de un CMS narrativo transmedia ("Olvidar es sanar"), construido con **HTML + CSS + JS puro** (sin frameworks, sin build step).
 
-🔗 **Demo en vivo:** _agregá acá tu URL de GitHub Pages una vez activada, ej: https://tu-usuario.github.io/memun/_
+🔗 **Demo en vivo:** https://memmun.github.io/CMS/
 
 ## Descripción
 
-MEMUN es un universo narrativo ("Olvidar es sanar") distribuido en tres formatos de contenido:
+MEMUN distribuye la historia en tres formatos:
 
-- **Novelas Gráficas** — cómics oficiales con capítulos e historias ilustradas
+- **Novelas Gráficas** — cómics oficiales con capítulos ilustrados
 - **Videojuego** — experiencia interactiva con misiones
-- **Wikimemun** — historia oficial, aldeas y personajes del universo
+- **Wikimemun** — historia oficial, aldeas y personajes
 
-Este prototipo simula un panel de usuario donde cada persona puede explorar esos tres formatos y ver su **progreso de avance** actualizarse en tiempo real, distribuido en cinco categorías narrativas: Memoria personal, Historia de las aldeas, Verdad sobre Memun, Resistencia y Conexión entre personajes.
+El panel simula el progreso del usuario en cinco categorías narrativas: Memoria personal, Historia de las aldeas, Verdad sobre Memun, Resistencia y Conexión entre personajes.
 
 ## Funcionalidades
 
-- **Inicio de sesión** simulado (acepta cualquier usuario/contraseña, para fines de demostración)
-- **Tres módulos de contenido** navegables (Novelas Gráficas, Videojuego, Wikimemun), cada uno con su propia lista de fragmentos
-- **Marcado de fragmentos como completados**, mediante un toggle dentro de cada módulo
-- **Cálculo de progreso en vivo**: las barras y el anillo de avance total se recalculan automáticamente según el contenido marcado como completado
-- **Diseño responsive**: versión adaptada para escritorio y para mobile
-- **Cierre de sesión**
+- Login simulado (cualquier usuario/contraseña)
+- Tres módulos navegables con modal de fragmentos
+- Toggle de completado y recálculo de barras de progreso en vivo
+- Layout alineado al diseño Figma (1920×1080) + responsive mobile
+- Cierre de sesión
 
 ## Cómo verlo
 
-1. Abrí la URL de la demo en vivo (arriba), o
-2. Descargá `index.html` de este repositorio y abrilo directo en cualquier navegador — no requiere instalación ni servidor
+1. Abrí la [demo en GitHub Pages](https://memmun.github.io/CMS/), o
+2. Cloná el repo y abrí `index.html` en el navegador (no requiere servidor)
 
 ## Cómo usarlo
 
-1. Ingresá cualquier usuario y contraseña en la pantalla de login
-2. En el dashboard, hacé clic en "Ingresar" en cualquiera de las tres tarjetas (Novelas Gráficas / Videojuego / Wikimemun)
-3. Activá el interruptor junto a un fragmento para marcarlo como completado
-4. Cerrá el modal y observá cómo se actualiza la barra de progreso de su categoría y el porcentaje total
-
-## Stack técnico
-
-Construido con **HTML, CSS y JavaScript puro** (sin frameworks ni dependencias externas), en un único archivo. El estado de progreso vive en memoria del navegador durante la sesión (no persiste entre recargas), ya que este es un prototipo de demostración visual y funcional, no una versión productiva con base de datos.
+1. Ingresá cualquier usuario y contraseña
+2. En el dashboard, hacé clic en VER / JUGAR / CREAR en cada tarjeta
+3. Activá el toggle junto a un fragmento para marcarlo completado
+4. Cerrá el modal y observá cómo se actualizan las barras de progreso
 
 ## Estructura del repositorio
 
 ```
-memun/
-├── index.html      # Prototipo completo (HTML + CSS + JS)
-└── README.md        # Este archivo
+CMS/
+├── index.html
+├── styles.css
+├── script.js
+├── design-system-memun.md
+├── assets/          # imágenes PNG (botones, cards, íconos, fondo)
+└── README.md
 ```
 
-## Próximos pasos (fuera del alcance de este prototipo)
+Ver `design-system-memun.md` para la guía de paleta y tipografía.
 
-Para una versión en producción, el progreso y el contenido narrativo deberían persistir en una base de datos real (por ejemplo, Supabase o Bubble), con autenticación de usuarios genuina y un panel de administración para gestionar el contenido narrativo.
+## Stack
+
+HTML, CSS y JavaScript puro. Google Fonts (Plus Jakarta Sans, Exo 2, Rajdhani). El estado vive en memoria del navegador — no persiste entre recargas.
+
+## GitHub Pages
+
+En el repo: **Settings → Pages → Build and deployment → Deploy from branch → `main` / `/ (root)`**.
+
+La URL quedará en `https://memmun.github.io/CMS/`.
 
 ---
 
-Proyecto académico — trabajo práctico.
+Proyecto académico — MEMUN.
