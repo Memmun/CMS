@@ -56,13 +56,25 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
           Bitácora
         </div>
-        <div class="nav-item nav-item-disabled">
+        <div class="nav-item" data-section="video-demo" onclick="goSection('video-demo')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Video Demo
+        </div>
+        <div class="nav-item" data-section="visados" onclick="goSection('visados')">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           Visados
         </div>
         <div class="nav-item" data-section="afiches" onclick="goSection('afiches')">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
           Afiches
+        </div>
+        <div class="nav-item" data-section="app" onclick="goSection('app')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+          App
+        </div>
+        <div class="nav-item" data-section="instagram" onclick="goSection('instagram')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>
+          Instagram
         </div>
       </nav>
 
@@ -123,14 +135,12 @@
         </div>
 
         <div class="mobile-tabs">
-          <div class="mobile-tab active" data-section="dashboard" onclick="goSection('dashboard')">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-            Bitácora
-          </div>
-          <div class="mobile-tab" data-section="afiches" onclick="goSection('afiches')">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
-            Afiches
-          </div>
+          <div class="mobile-tab active" data-section="dashboard" onclick="goSection('dashboard')">Bitácora</div>
+          <div class="mobile-tab" data-section="video-demo" onclick="goSection('video-demo')">Video</div>
+          <div class="mobile-tab" data-section="visados" onclick="goSection('visados')">Visados</div>
+          <div class="mobile-tab" data-section="afiches" onclick="goSection('afiches')">Afiches</div>
+          <div class="mobile-tab" data-section="app" onclick="goSection('app')">App</div>
+          <div class="mobile-tab" data-section="instagram" onclick="goSection('instagram')">Instagram</div>
         </div>
 
         <main class="main">
@@ -151,9 +161,9 @@
                     </div>
                     <p class="module-desc">Explorá los cómics oficiales de MEMUN. Historias ilustradas que revelan nuevas perspectivas.</p>
                     <div class="module-meta" id="meta-novela">0 / 0 fragmentos leídos</div>
-                    <button class="cta-img-btn" onclick="openModule('novela')">
+                    <a class="cta-img-btn" href="https://caiofortega-bit.github.io/MEMUM/" target="_blank" rel="noopener noreferrer">
                       <img src="assets/btn-ver.png" alt="Ver">
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -167,7 +177,7 @@
                     </div>
                     <p class="module-desc">Viví la experiencia interactiva. Tomá decisiones, completá misiones y desbloqueá recuerdos.</p>
                     <div class="module-meta" id="meta-juego">0 / 0 misiones completadas</div>
-                    <button class="cta-img-btn" onclick="openModule('juego')">
+                    <button class="cta-img-btn" type="button" onclick="showComingSoon('El demo del videojuego estará disponible pronto.')">
                       <img src="assets/btn-jugar.png" alt="Jugar">
                     </button>
                   </div>
@@ -183,9 +193,9 @@
                     </div>
                     <p class="module-desc">Accedé a la historia oficial de MEMUN. Explorá aldeas, personajes, tecnología y más.</p>
                     <div class="module-meta" id="meta-wiki">0 / 0 entradas consultadas</div>
-                    <button class="cta-img-btn" onclick="openModule('wiki')">
-                      <img src="assets/btn-crear.png" alt="Crear">
-                    </button>
+                    <a class="cta-img-btn" href="https://gonzalorceccato.github.io/wikimemun/#" target="_blank" rel="noopener noreferrer">
+                      <img src="assets/btn-crear.png" alt="Editar">
+                    </a>
                   </div>
                 </div>
               </div>
@@ -197,13 +207,95 @@
             </div>
           </section>
 
+          <section id="section-video-demo" class="hidden">
+            <div class="hero-banner">
+              <div class="hero-glow"></div>
+              <div class="hero-title">Video Demo</div>
+              <div class="hero-sub">Narrativa transmedia MEMUN en acción.</div>
+            </div>
+            <div class="placeholder-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              <p class="placeholder-title">Video en producción</p>
+              <p class="placeholder-desc">El video de la narrativa transmedia funcionando se publicará aquí cuando esté listo.</p>
+            </div>
+          </section>
+
+          <section id="section-visados" class="hidden">
+            <div class="hero-banner">
+              <div class="hero-glow"></div>
+              <div class="hero-title">Visados</div>
+              <div class="hero-sub">Proceso de trabajo y entregas del proyecto.</div>
+            </div>
+            <div class="video-grid">
+              <article class="video-card">
+                <h3 class="video-card-title">Visado 1 — TP 1</h3>
+                <div class="video-embed"><iframe src="https://www.youtube.com/embed/_PItfSn_6wA" title="Visado 1 TP 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
+              </article>
+              <article class="video-card">
+                <h3 class="video-card-title">Visado 2 — TP 1</h3>
+                <div class="video-embed"><iframe src="https://www.youtube.com/embed/rKJi1EVHLz4" title="Visado 2 TP 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
+              </article>
+              <article class="video-card">
+                <h3 class="video-card-title">Visado 1 — TP 2</h3>
+                <div class="video-embed"><iframe src="https://www.youtube.com/embed/D4Esqev9RsI" title="Visado 1 TP 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
+              </article>
+              <article class="video-card">
+                <h3 class="video-card-title">Visado 2 — TP 2</h3>
+                <div class="video-embed"><iframe src="https://www.youtube.com/embed/WznHt0zWC0U" title="Visado 2 TP 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
+              </article>
+              <article class="video-card">
+                <h3 class="video-card-title">Visado 3 — TP 2</h3>
+                <div class="video-embed"><iframe src="https://www.youtube.com/embed/a_nrsjw3_6I" title="Visado 3 TP 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
+              </article>
+            </div>
+          </section>
+
           <section id="section-afiches" class="hidden">
             <div class="hero-banner">
               <div class="hero-glow"></div>
               <div class="hero-title">Afiches</div>
-              <div class="hero-sub">Material gráfico y avances del universo MEMUN.</div>
+              <div class="hero-sub">Material gráfico del universo MEMUN.</div>
             </div>
-            <div class="panel"><p>Galería de afiches en construcción.</p></div>
+            <div class="poster-grid">
+              <figure class="poster-card">
+                <img src="assets/afiche-propaganda-memun.png" alt="Afiche Propaganda Memun — Un futuro sin dolor">
+                <figcaption>Afiche Propaganda Memun</figcaption>
+              </figure>
+              <figure class="poster-card">
+                <img src="assets/panfleto-resistencia-memun.png" alt="Panfleto Resistencia Memun — Recuerda, Cuestiona, Resiste">
+                <figcaption>Panfleto Resistencia Memun</figcaption>
+              </figure>
+            </div>
+          </section>
+
+          <section id="section-app" class="hidden">
+            <div class="hero-banner">
+              <div class="hero-glow"></div>
+              <div class="hero-title">App</div>
+              <div class="hero-sub">Prototipo interactivo de la experiencia MEMUN.</div>
+            </div>
+            <div class="embed-wrap">
+              <iframe class="figma-embed" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2Fbu6ngtFJ47hdB4LMY8vjNU%2FSin-t%25C3%25ADtulo%3Fnode-id%3D38-3%26scaling%3Dscale-down%26content-scaling%3Dfixed%26page-id%3D38%253A2%26starting-point-node-id%3D38%253A3" allowfullscreen loading="lazy" title="Prototipo App MEMUN"></iframe>
+            </div>
+            <p class="embed-note"><a href="https://www.figma.com/proto/bu6ngtFJ47hdB4LMY8vjNU/Sin-t%C3%ADtulo?node-id=38-3&scaling=scale-down&content-scaling=fixed&page-id=38%3A2&starting-point-node-id=38%3A3" target="_blank" rel="noopener noreferrer">Abrir prototipo en Figma ↗</a></p>
+          </section>
+
+          <section id="section-instagram" class="hidden">
+            <div class="hero-banner">
+              <div class="hero-glow"></div>
+              <div class="hero-title">Instagram</div>
+              <div class="hero-sub">Seguí el universo MEMUN en redes.</div>
+            </div>
+            <div class="link-card">
+              <div class="link-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>
+              </div>
+              <div class="link-card-body">
+                <p class="link-card-title">@memun.mavi2</p>
+                <p class="link-card-desc">Novedades, arte y avances del proyecto narrativo transmedia.</p>
+                <a class="link-card-btn" href="https://www.instagram.com/memun.mavi2/" target="_blank" rel="noopener noreferrer">Visitar perfil ↗</a>
+              </div>
+            </div>
           </section>
         </main>
       </div>

@@ -63,12 +63,23 @@ document.addEventListener('click', () => {
   document.getElementById('account-chip').classList.remove('open');
 });
 
+const SECTIONS = ['dashboard','video-demo','visados','afiches','app','instagram'];
+
 function goSection(name){
+  if(!SECTIONS.includes(name)) return;
   document.querySelectorAll('.nav-item, .mobile-tab').forEach(el => el.classList.remove('active'));
   document.querySelectorAll('[data-section="'+name+'"]').forEach(el => el.classList.add('active'));
-  ['dashboard','afiches'].forEach(s=>{
+  SECTIONS.forEach(s=>{
     document.getElementById('section-'+s).classList.toggle('hidden', s !== name);
   });
+}
+
+function openExternal(url){
+  window.open(url, '_blank', 'noopener,noreferrer');
+}
+
+function showComingSoon(msg){
+  showToast(msg || 'Contenido próximamente disponible.');
 }
 
 let activeModalTipo = null;
