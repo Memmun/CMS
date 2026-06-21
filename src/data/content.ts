@@ -59,6 +59,12 @@ export const tipoLabels = {
   wiki: { tag: 'Wikimemun', titulo: 'Historia oficial', unidad: 'entradas consultadas' },
 } as const;
 
+export const EXTERNAL_LINKS = {
+  novela: 'https://caiofortega-bit.github.io/MEMUM/',
+  juego: 'https://www.youtube.com/watch?v=CdGfFPssCts',
+  wiki: 'https://gonzalorceccato.github.io/wikimemun/#',
+} as const;
+
 export const INSTAGRAM = {
   profile: 'https://www.instagram.com/memun.mavi2/',
   username: 'memun.mavi2',

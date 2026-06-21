@@ -1,9 +1,9 @@
 import { useApp } from '@/context/AppContext';
+import { EXTERNAL_LINKS } from '@/data/content';
 import { asset } from '@/lib/utils';
 
 export function DashboardSection() {
-  const { getModuleMeta, showComingSoon } = useApp();
-
+  const { getModuleMeta } = useApp();
   return (
     <section id="section-dashboard">
       <div className="dashboard-glow" />
@@ -27,11 +27,10 @@ export function DashboardSection() {
               <div className="module-meta">{getModuleMeta('novela')}</div>
               <a
                 className="cta-btn"
-                href="https://caiofortega-bit.github.io/MEMUM/"
+                href={EXTERNAL_LINKS.novela}
                 target="_blank"
                 rel="noopener noreferrer"
-              >
-                <span className="cta-btn-label">VER</span>
+              >                <span className="cta-btn-label">VER</span>
                 <img className="cta-btn-icon" src={asset('assets/icon-arrow-cta.svg')} alt="" />
               </a>
             </div>
@@ -50,15 +49,15 @@ export function DashboardSection() {
                 Viví la experiencia interactiva. Tomá decisiones, completá misiones y desbloqueá recuerdos.
               </p>
               <div className="module-meta">{getModuleMeta('juego')}</div>
-              <button
-                type="button"
+              <a
                 className="cta-btn"
-                onClick={() => showComingSoon('El demo del videojuego estará disponible pronto.')}
+                href={EXTERNAL_LINKS.juego}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <span className="cta-btn-label">JUGAR</span>
                 <img className="cta-btn-icon" src={asset('assets/icon-arrow-cta.svg')} alt="" />
-              </button>
-            </div>
+              </a>            </div>
           </div>
         </div>
 
@@ -76,11 +75,10 @@ export function DashboardSection() {
               <div className="module-meta">{getModuleMeta('wiki')}</div>
               <a
                 className="cta-btn"
-                href="https://gonzalorceccato.github.io/wikimemun/#"
+                href={EXTERNAL_LINKS.wiki}
                 target="_blank"
                 rel="noopener noreferrer"
-              >
-                <span className="cta-btn-label">EDITAR</span>
+              >                <span className="cta-btn-label">EDITAR</span>
                 <img className="cta-btn-icon" src={asset('assets/icon-arrow-cta.svg')} alt="" />
               </a>
             </div>
