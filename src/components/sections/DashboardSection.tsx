@@ -1,9 +1,68 @@
 import { useApp } from '@/context/AppContext';
+import { CardSpotlight } from '@/components/ui/card-spotlight';
 import { asset } from '@/lib/utils';
+import type { ModuleTipo } from '@/data/content';
 
-export function DashboardSection() {
+const MEMUN_SPOTLIGHT = {
+  color: '#12082a',
+  revealColors: [
+    [99, 53, 229],
+    [0, 212, 232],
+  ] as number[][],
+};
+
+type ModuleCardProps = {
+  tipo: ModuleTipo;
+  artClass: string;
+  title: string;
+  icon: string;
+  image: string;
+  desc: string;
+  descMuted?: boolean;
+  cta: string;
+  cardClassName?: string;
+};
+
+function ModuleCard({
+  tipo,
+  artClass,
+  title,
+  icon,
+  image,
+  desc,
+  descMuted,
+  cta,
+  cardClassName = '',
+}: ModuleCardProps) {
   const { getModuleMeta, openPreview } = useApp();
 
+  return (
+    <CardSpotlight
+      className={`module-card module-card-spotlight ${cardClassName}`.trim()}
+      radius={320}
+      color={MEMUN_SPOTLIGHT.color}
+      revealColors={MEMUN_SPOTLIGHT.revealColors}
+    >
+      <div className={`module-art ${artClass} relative z-20`}>
+        <img className="module-bg" src={asset(image)} alt="" />
+        <div className={`module-overlay${artClass.includes('juego') ? ' overlay-juego' : ''}`}>
+          <div className="module-name-row">
+            <img className="module-type-icon" src={asset(icon)} alt="" />
+            <div className="module-name">{title}</div>
+          </div>
+          <p className={`module-desc${descMuted ? ' module-desc-muted' : ''}`}>{desc}</p>
+          <div className="module-meta">{getModuleMeta(tipo)}</div>
+          <button type="button" className="cta-btn relative z-20" onClick={() => openPreview(tipo)}>
+            <span className="cta-btn-label">{cta}</span>
+            <img className="cta-btn-icon" src={asset('assets/icon-arrow-cta.svg')} alt="" />
+          </button>
+        </div>
+      </div>
+    </CardSpotlight>
+  );
+}
+
+export function DashboardSection() {
   return (
     <section id="section-dashboard">
       <div className="dashboard-glow" />
@@ -13,65 +72,38 @@ export function DashboardSection() {
       </div>
 
       <div className="modules">
-        <div className="module-card">
-          <div className="module-art art-novela">
-            <img className="module-bg" src={asset('assets/card-novela.png')} alt="" />
-            <div className="module-overlay">
-              <div className="module-name-row">
-                <img className="module-type-icon" src={asset('assets/icon-novela.svg')} alt="" />
-                <div className="module-name">Novelas Gráficas</div>
-              </div>
-              <p className="module-desc">
-                Explorá los cómics oficiales de MEMUN. Historias ilustradas que revelan nuevas perspectivas.
-              </p>
-              <div className="module-meta">{getModuleMeta('novela')}</div>
-              <button type="button" className="cta-btn" onClick={() => openPreview('novela')}>
-                <span className="cta-btn-label">VER</span>
-                <img className="cta-btn-icon" src={asset('assets/icon-arrow-cta.svg')} alt="" />
-              </button>
-            </div>
-          </div>
-        </div>
+        <ModuleCard
+          tipo="novela"
+          artClass="art-novela"
+          title="Novelas Gráficas"
+          icon="assets/icon-novela.svg"
+          image="assets/card-novela.png"
+          desc="Explorá los cómics oficiales de MEMUN. Historias ilustradas que revelan nuevas perspectivas."
+          cta="VER"
+        />
 
-        <div className="module-card module-card-juego">
-          <div className="module-art art-juego">
-            <img className="module-bg" src={asset('assets/card-juego.png')} alt="" />
-            <div className="module-overlay overlay-juego">
-              <div className="module-name-row">
-                <img className="module-type-icon" src={asset('assets/icon-juego.svg')} alt="" />
-                <div className="module-name">Videojuego</div>
-              </div>
-              <p className="module-desc module-desc-muted">
-                Viví la experiencia interactiva. Tomá decisiones, completá misiones y desbloqueá recuerdos.
-              </p>
-              <div className="module-meta">{getModuleMeta('juego')}</div>
-              <button type="button" className="cta-btn" onClick={() => openPreview('juego')}>
-                <span className="cta-btn-label">JUGAR</span>
-                <img className="cta-btn-icon" src={asset('assets/icon-arrow-cta.svg')} alt="" />
-              </button>
-            </div>
-          </div>
-        </div>
+        <ModuleCard
+          tipo="juego"
+          artClass="art-juego"
+          title="Videojuego"
+          icon="assets/icon-juego.svg"
+          image="assets/card-juego.png"
+          desc="Viví la experiencia interactiva. Tomá decisiones, completá misiones y desbloqueá recuerdos."
+          descMuted
+          cta="JUGAR"
+          cardClassName="module-card-juego"
+        />
 
-        <div className="module-card">
-          <div className="module-art art-wiki">
-            <img className="module-bg" src={asset('assets/card-wiki.png')} alt="" />
-            <div className="module-overlay">
-              <div className="module-name-row">
-                <img className="module-type-icon" src={asset('assets/icon-wiki.svg')} alt="" />
-                <div className="module-name">Wikimemun</div>
-              </div>
-              <p className="module-desc module-desc-muted">
-                Accedé a la historia oficial de MEMUN. Explorá aldeas, personajes, tecnología y más.
-              </p>
-              <div className="module-meta">{getModuleMeta('wiki')}</div>
-              <button type="button" className="cta-btn" onClick={() => openPreview('wiki')}>
-                <span className="cta-btn-label">EDITAR</span>
-                <img className="cta-btn-icon" src={asset('assets/icon-arrow-cta.svg')} alt="" />
-              </button>
-            </div>
-          </div>
-        </div>
+        <ModuleCard
+          tipo="wiki"
+          artClass="art-wiki"
+          title="Wikimemun"
+          icon="assets/icon-wiki.svg"
+          image="assets/card-wiki.png"
+          desc="Accedé a la historia oficial de MEMUN. Explorá aldeas, personajes, tecnología y más."
+          descMuted
+          cta="EDITAR"
+        />
       </div>
 
       <div className="footer-note">

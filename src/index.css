@@ -452,6 +452,19 @@ body::before{
   min-height:420px;
   transition:transform .15s ease, border-color .15s ease;
 }
+.module-card-spotlight{
+  display:block;
+  height:100%;
+  min-height:420px;
+  padding:0 !important;
+  background:transparent !important;
+  border-color:rgba(71,67,87,0.6);
+}
+.module-card-spotlight > .pointer-events-none{
+  border-radius:inherit;
+  z-index:1;
+}
+.module-card-spotlight:hover,
 .module-card:hover{ transform:translateY(-3px); border-color:rgba(0,212,232,0.35); }
 .module-card-juego{ border-color:rgba(71,67,87,0.52); }
 .module-card-juego:hover{ border-color:rgba(0,212,232,0.35); }
