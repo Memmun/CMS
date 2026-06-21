@@ -156,16 +156,18 @@ body::before{
 .login-hint{ margin-top:16px; font-size:10.5px; color:var(--beige); text-align:center; line-height:1.6; }
 
 /* ---------- APP SHELL (Figma Desktop 1920) ---------- */
-#app-screen{ display:none; min-height:100vh; background:var(--bg-shell); }
+#app-screen{ display:none; min-height:100vh; background:transparent; }
 .app-frame{
   display:flex; min-height:100vh; max-width:1920px; margin:0 auto;
-  background:var(--bg-shell);
+  background:transparent;
 }
 
 /* Sidebar */
 .sidebar{
   width:var(--sidebar-w); flex-shrink:0;
-  background:var(--surface);
+  background:rgba(5,5,31,0.62);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
   display:flex; flex-direction:column;
   position:relative; overflow:hidden;
   min-height:100vh;
@@ -242,7 +244,9 @@ body::before{
 }
 .app-panel{
   flex:1; display:flex; flex-direction:column;
-  background:var(--panel);
+  background:rgba(5,5,31,0.52);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
   border:1px solid var(--line);
   border-radius:var(--radius-panel);
   overflow:hidden;
@@ -256,7 +260,9 @@ body::before{
   display:flex; align-items:center; gap:18px;
   padding:0 24px 0 23px; height:72px; flex-shrink:0;
   border-bottom:1px solid rgba(253,253,253,0.08);
-  background:var(--panel);
+  background:rgba(5,5,31,0.45);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
   flex-wrap:wrap;
 }
 .avance-pill{
