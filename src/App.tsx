@@ -9,11 +9,13 @@ function MemunApp() {
   const { user } = useApp();
   return (
     <>
+      {!user && <div className="login-backdrop" aria-hidden="true" />}
       <SparklesBackground />
       {!user ? <LoginScreen /> : <AppShell />}
       <ModuleModal />
       <ContentPreviewModal />
-      <Toast />    </>
+      <Toast />
+    </>
   );
 }
 

@@ -1,9 +1,8 @@
 import { useEffect, useId, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
-import type { Container, SingleOrMultiple } from "@tsparticles/engine";
+import type { SingleOrMultiple } from "@tsparticles/engine";
 import { loadSlim } from "@tsparticles/slim";
 import { cn } from "@/lib/utils";
-import { motion, useAnimation } from "motion/react";
 
 type ParticlesProps = {
   id?: string;
@@ -35,41 +34,14 @@ export const SparklesCore = (props: ParticlesProps) => {
       setInit(true);
     });
   }, []);
-  const controls = useAnimation();
-
-  const particlesLoaded = async (container?: Container) => {
-    if (container) {
-      controls.start({
-        opacity: 1,
-        transition: {
-          duration: 1,
-        },
-      });
-    }
-  };
-
   const generatedId = useId();
 
-  useEffect(() => {
-    if (!init) return;
-    const timer = window.setTimeout(() => {
-      controls.start({ opacity: 1, transition: { duration: 1 } });
-    }, 250);
-    return () => window.clearTimeout(timer);
-  }, [init, controls]);
-
   return (
-    <motion.div
-      animate={controls}
-      initial={{ opacity: 0 }}
-      className={cn(className)}
-      style={{ width: '100%', height: '100%' }}
-    >
+    <div className={cn(className)} style={{ width: '100%', height: '100%', opacity: 1 }}>
       {init && (
         <Particles
           id={id || generatedId}
           className="sparkles-particles"
-          particlesLoaded={particlesLoaded}
           options={{
             background: {
               color: {
@@ -441,6 +413,6 @@ export const SparklesCore = (props: ParticlesProps) => {
           }}
         />
       )}
-    </motion.div>
+    </div>
   );
 };
