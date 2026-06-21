@@ -1,6 +1,6 @@
 # MEMUN — Editor de Memorias
 
-Prototipo funcional de un CMS narrativo transmedia ("Olvidar es sanar"), construido con **HTML + CSS + JS puro** (sin frameworks, sin build step).
+Prototipo funcional de un CMS narrativo transmedia ("Olvidar es sanar"), construido con **React + Vite + TypeScript + Tailwind CSS**.
 
 🔗 **Demo en vivo:** https://memmun.github.io/CMS/
 
@@ -17,44 +17,56 @@ El panel simula el progreso del usuario en cinco categorías narrativas: Memoria
 ## Funcionalidades
 
 - Login simulado (cualquier usuario/contraseña)
-- Tres módulos navegables con modal de fragmentos
+- Dashboard con tres módulos navegables y modal de fragmentos
 - Toggle de completado y recálculo de barras de progreso en vivo
+- Secciones: Video Demo, Visados, Afiches, App (Figma), Instagram
+- Fondo animado con partículas (Aceternity Sparkles + tsparticles)
 - Layout alineado al diseño Figma (1920×1080) + responsive mobile
 - Cierre de sesión
 
-## Cómo verlo
+## Desarrollo local
 
-1. Abrí la [demo en GitHub Pages](https://memmun.github.io/CMS/), o
-2. Cloná el repo y abrí `index.html` en el navegador (no requiere servidor)
+```bash
+npm install
+npm run dev
+```
 
-## Cómo usarlo
+Abrí `http://localhost:5173/CMS/` en el navegador.
 
-1. Ingresá cualquier usuario y contraseña
-2. En el dashboard, hacé clic en VER / JUGAR / CREAR en cada tarjeta
-3. Activá el toggle junto a un fragmento para marcarlo completado
-4. Cerrá el modal y observá cómo se actualizan las barras de progreso
+## Build de producción
+
+```bash
+npm run build
+npm run preview
+```
 
 ## Estructura del repositorio
 
 ```
 CMS/
 ├── index.html
-├── styles.css
-├── script.js
-├── design-system-memun.md
-├── assets/          # imágenes PNG (botones, cards, íconos, fondo)
-└── README.md
+├── src/
+│   ├── App.tsx
+│   ├── index.css
+│   ├── components/     # UI, login, dashboard, sparkles
+│   ├── context/        # estado global (login, progreso, modal)
+│   └── data/           # contenido y navegación
+├── public/assets/      # imágenes PNG/SVG exportadas de Figma
+├── .github/workflows/  # deploy automático a GitHub Pages
+└── design-system-memun.md
 ```
 
 Ver `design-system-memun.md` para la guía de paleta y tipografía.
 
 ## Stack
 
-HTML, CSS y JavaScript puro. Google Fonts (Plus Jakarta Sans, Exo 2, Rajdhani). El estado vive en memoria del navegador — no persiste entre recargas.
+React 19, Vite 6, TypeScript, Tailwind CSS v4, tsparticles, Motion. Google Fonts (Plus Jakarta Sans, Exo 2, Rajdhani). El estado vive en memoria del navegador — no persiste entre recargas.
 
 ## GitHub Pages
 
-En el repo: **Settings → Pages → Build and deployment → Deploy from branch → `main` / `/ (root)`**.
+El deploy es automático vía GitHub Actions al pushear a `main`. En el repo:
+
+**Settings → Pages → Build and deployment → Source: GitHub Actions**
 
 La URL quedará en `https://memmun.github.io/CMS/`.
 
