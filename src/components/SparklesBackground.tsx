@@ -16,16 +16,17 @@ export function SparklesBackground() {
 
   return (
     <div className="sparkles-bg ready" aria-hidden="true">
-      <SparklesCore
-        id="tsparticlesfullpage"
-        background="transparent"
-        minSize={0.6}
-        maxSize={1.4}
-        particleDensity={density}
-        className="h-full w-full"
-        particleColor="#FFFFFF"
-        speed={4}
-      />
+      <div className="absolute inset-0 h-screen w-full">
+        <SparklesCore
+          id="tsparticlesfullpage"
+          background="transparent"
+          minSize={0.6}
+          maxSize={1.4}
+          particleDensity={density}
+          className="h-full w-full"
+          particleColor="#FFFFFF"
+        />
+      </div>
     </div>
   );
 }
