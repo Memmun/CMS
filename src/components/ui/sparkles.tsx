@@ -49,12 +49,26 @@ export const SparklesCore = (props: ParticlesProps) => {
   };
 
   const generatedId = useId();
+
+  useEffect(() => {
+    if (!init) return;
+    const timer = window.setTimeout(() => {
+      controls.start({ opacity: 1, transition: { duration: 1 } });
+    }, 250);
+    return () => window.clearTimeout(timer);
+  }, [init, controls]);
+
   return (
-    <motion.div animate={controls} className={cn("opacity-0", className)}>
+    <motion.div
+      animate={controls}
+      initial={{ opacity: 0 }}
+      className={cn(className)}
+      style={{ width: '100%', height: '100%' }}
+    >
       {init && (
         <Particles
           id={id || generatedId}
-          className={cn("h-full w-full")}
+          className="sparkles-particles"
           particlesLoaded={particlesLoaded}
           options={{
             background: {

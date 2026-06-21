@@ -45,8 +45,24 @@ body{
   pointer-events:none;
   overflow:hidden;
 }
-.sparkles-bg.ready{ opacity:1; }
-.sparkles-bg canvas{ display:block; }
+.sparkles-bg-inner{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+}
+.sparkles-core{
+  width:100%;
+  height:100%;
+}
+.sparkles-particles{
+  width:100%;
+  height:100%;
+}
+.sparkles-bg canvas{
+  display:block;
+  opacity:0.85;
+}
 
 #login-screen,
 #app-screen,
@@ -62,7 +78,7 @@ body{
   min-height:100vh;
   display:flex; align-items:center; justify-content:center; padding:24px;
   background:
-    linear-gradient(rgba(8,12,24,0.5), rgba(8,12,24,0.72)),
+    linear-gradient(rgba(8,12,24,0.35), rgba(8,12,24,0.55)),
     url('/CMS/assets/fondo.png') top center / cover no-repeat fixed,
     radial-gradient(circle at 20% 15%, rgba(99,53,229,0.18), transparent 45%),
     radial-gradient(circle at 80% 85%, rgba(0,212,232,0.08), transparent 45%);
@@ -124,13 +140,15 @@ body::before{
 #app-screen{ display:none; min-height:100vh; background:transparent; }
 .app-frame{
   display:flex; min-height:100vh; max-width:1920px; margin:0 auto;
-  background:var(--bg-shell);
+  background:transparent;
 }
 
 /* Sidebar */
 .sidebar{
   width:var(--sidebar-w); flex-shrink:0;
-  background:var(--surface);
+  background:rgba(5,5,31,0.62);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
   display:flex; flex-direction:column;
   position:relative; overflow:hidden;
   min-height:100vh;
@@ -207,7 +225,9 @@ body::before{
 }
 .app-panel{
   flex:1; display:flex; flex-direction:column;
-  background:var(--panel);
+  background:rgba(5,5,31,0.52);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
   border:1px solid var(--line);
   border-radius:var(--radius-panel);
   overflow:hidden;
@@ -221,7 +241,9 @@ body::before{
   display:flex; align-items:center; gap:18px;
   padding:0 24px 0 23px; height:72px; flex-shrink:0;
   border-bottom:1px solid rgba(253,253,253,0.08);
-  background:rgba(5,5,31,0.7);
+  background:rgba(5,5,31,0.45);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
   flex-wrap:wrap;
 }
 .avance-pill{
