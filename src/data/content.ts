@@ -41,13 +41,13 @@ export const categorias: Categoria[] = [
 ];
 
 export const initialContenido: ContenidoItem[] = [
-  { id: 'ng1', tipo: 'novela', titulo: 'Capítulo 1 — El despertar', categoria: 'personal', peso: 1, completado: false },
-  { id: 'ng2', tipo: 'novela', titulo: 'Capítulo 2 — La aldea ausente', categoria: 'aldeas', peso: 1, completado: false },
-  { id: 'ng3', tipo: 'novela', titulo: 'Capítulo 3 — Visiones de Memun', categoria: 'verdad', peso: 1, completado: false },
+  { id: 'ng1', tipo: 'novela', titulo: 'Capítulo 1 — El despertar', categoria: 'personal', peso: 1, completado: true },
+  { id: 'ng2', tipo: 'novela', titulo: 'Capítulo 2 — La aldea ausente', categoria: 'aldeas', peso: 1, completado: true },
+  { id: 'ng3', tipo: 'novela', titulo: 'Capítulo 3 — Visiones de Memun', categoria: 'verdad', peso: 1, completado: true },
   { id: 'ng4', tipo: 'novela', titulo: 'Capítulo 4 — El primer recuerdo', categoria: 'personal', peso: 1, completado: false },
   { id: 'vj1', tipo: 'juego', titulo: 'Misión — Cruzar el umbral', categoria: 'resistencia', peso: 1, completado: false },
   { id: 'vj2', tipo: 'juego', titulo: 'Misión — El pacto olvidado', categoria: 'verdad', peso: 1, completado: false },
-  { id: 'vj3', tipo: 'juego', titulo: 'Misión — Reencuentro', categoria: 'conexion', peso: 1, completado: false },
+  { id: 'vj3', tipo: 'juego', titulo: 'Misión — Reencuentro', categoria: 'conexion', peso: 1, completado: true },
   { id: 'wk1', tipo: 'wiki', titulo: 'Entrada — Aldea de Cinder', categoria: 'aldeas', peso: 1, completado: false },
   { id: 'wk2', tipo: 'wiki', titulo: 'Entrada — Los Emirec', categoria: 'conexion', peso: 1, completado: false },
   { id: 'wk3', tipo: 'wiki', titulo: 'Entrada — Resistencia del Norte', categoria: 'resistencia', peso: 1, completado: false },

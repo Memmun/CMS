@@ -180,10 +180,9 @@ export function AppShell() {
                   <b>{progress.totalPct}%</b>
                 </div>
                 <AnimatedProgressBar
-                  className="smooth-progress-bar"
-                  barClassName="smooth-progress-bar-fill"
+                  key={`avance-${progress.totalPct}`}
                   value={progress.totalPct}
-                  color="var(--cyan)"
+                  color="#00d4e8"
                 />
               </div>
 
@@ -195,10 +194,9 @@ export function AppShell() {
                     <b id="pct-verdad">{progress.verdadPct}%</b>
                   </div>
                   <AnimatedProgressBar
-                    className="smooth-progress-bar"
-                    barClassName="smooth-progress-bar-fill"
+                    key={`verdad-${progress.verdadPct}`}
                     value={progress.verdadPct}
-                    color="var(--magenta)"
+                    color="#a855f7"
                   />
                 </div>
               </div>
@@ -211,10 +209,9 @@ export function AppShell() {
                     <b id="pct-personal">{progress.personalPct}%</b>
                   </div>
                   <AnimatedProgressBar
-                    className="smooth-progress-bar"
-                    barClassName="smooth-progress-bar-fill"
+                    key={`personal-${progress.personalPct}`}
                     value={progress.personalPct}
-                    color="var(--cyan)"
+                    color="#00d4e8"
                   />
                 </div>
               </div>

@@ -1,4 +1,5 @@
-import { motion, useReducedMotion } from "motion/react";
+import { motion, useReducedMotion } from 'motion/react';
+import { cn } from '@/lib/utils';
 
 export interface AnimatedProgressBarProps {
   barClassName?: string;
@@ -6,47 +7,47 @@ export interface AnimatedProgressBarProps {
   color?: string;
   label?: string;
   labelClassName?: string;
-  value: number; // 0-100
-  /**
-   * To replay the animation, change the React 'key' prop on this component from the parent.
-   */
+  trackClassName?: string;
+  value: number;
 }
 
 const MIN_PROGRESS_VALUE = 0;
 const MAX_PROGRESS_VALUE = 100;
 
 const SPRING = {
-  type: "spring" as const,
-  damping: 10,
-  mass: 0.75,
-  stiffness: 100,
-  duration: 0.25,
+  type: 'spring' as const,
+  damping: 14,
+  mass: 0.8,
+  stiffness: 120,
 };
 
 export default function AnimatedProgressBar({
   value,
   label,
-  color = "#6366f1",
-  className = "",
-  barClassName = "",
-  labelClassName = "",
+  color = '#00d4e8',
+  className,
+  barClassName,
+  labelClassName,
+  trackClassName,
 }: AnimatedProgressBarProps) {
   const shouldReduceMotion = useReducedMotion();
+  const clamped = Math.max(MIN_PROGRESS_VALUE, Math.min(MAX_PROGRESS_VALUE, value));
 
   return (
-    <div className={`w-full ${className}`}>
+    <div className={cn('w-full', className)}>
       {label && (
-        <div className={`mb-1 font-medium text-sm ${labelClassName}`}>
-          {label}
-        </div>
+        <div className={cn('mb-1 text-sm font-medium', labelClassName)}>{label}</div>
       )}
-      <div className="relative h-3 w-full overflow-hidden rounded border bg-background">
+      <div
+        className={cn(
+          'relative h-[6px] w-full overflow-hidden rounded-full bg-[var(--surface-2)]',
+          trackClassName,
+        )}
+      >
         <motion.div
-          animate={{
-            width: `${Math.max(MIN_PROGRESS_VALUE, Math.min(MAX_PROGRESS_VALUE, value))}%`,
-          }}
-          className={`h-full rounded bg-background ${barClassName}`}
-          initial={{ width: MIN_PROGRESS_VALUE }}
+          animate={{ width: `${clamped}%` }}
+          className={cn('h-full rounded-full', barClassName)}
+          initial={{ width: '0%' }}
           style={{ backgroundColor: color }}
           transition={shouldReduceMotion ? { duration: 0 } : SPRING}
         />

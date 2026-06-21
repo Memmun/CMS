@@ -314,16 +314,6 @@ body::before{
   background:var(--cyan);
   width:0%; transition:width .6s cubic-bezier(.2,.8,.2,1);
 }
-.smooth-progress-bar .relative{
-  height:6px;
-  border-radius:999px;
-  background:var(--surface-2);
-  border:none;
-  overflow:hidden;
-}
-.smooth-progress-bar .relative > div{
-  border-radius:999px;
-}
 
 .stat-pill{
   height:53px; flex:0 0 auto; min-width:0;
