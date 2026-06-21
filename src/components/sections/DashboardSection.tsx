@@ -72,7 +72,7 @@ function ModuleCard({
 
 export function DashboardSection() {
   return (
-    <section id="section-dashboard">
+    <section id="section-home">
       <div className="dashboard-glow" />
       <div className="hero-banner">
         <div className="hero-title">Elige tu forma de acceso</div>

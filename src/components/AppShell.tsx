@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useApp } from '@/context/AppContext';
-import { INSTAGRAM, NAV_ITEMS, VIDEO_DEMO, VISADOS } from '@/data/content';
+import { BITACORA, INSTAGRAM, NAV_ITEMS, VIDEO_DEMO, VISADOS } from '@/data/content';
 import { asset } from '@/lib/utils';
 import { DashboardSection } from '@/components/sections/DashboardSection';
 import AnimatedProgressBar from '@/components/ui/smoothui/animated-progress-bar';
@@ -259,7 +259,30 @@ export function AppShell() {
             </div>
 
             <main className="main">
-              {section === 'dashboard' && <DashboardSection />}
+              {section === 'home' && <DashboardSection />}
+
+              {section === 'bitacora' && (
+                <section id="section-bitacora">
+                  <HeroBanner title="Bitácora" subtitle="Presentación del universo MEMUN." />
+                  <div className="embed-wrap canva-embed-wrap">
+                    <iframe
+                      className="canva-embed"
+                      src={BITACORA.embed}
+                      allowFullScreen
+                      loading="lazy"
+                      title={BITACORA.title}
+                      allow="fullscreen"
+                    />
+                  </div>
+                  <p className="embed-note">
+                    Presentación en Canva. Si no carga, abrila en{' '}
+                    <a href={BITACORA.url} target="_blank" rel="noopener noreferrer">
+                      Canva ↗
+                    </a>
+                    .
+                  </p>
+                </section>
+              )}
 
               {section === 'video-demo' && (
                 <section id="section-video-demo">

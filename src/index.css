@@ -407,6 +407,7 @@ body::before{
   position:relative;
   background:transparent;
 }
+#section-home,
 #section-dashboard{ position:relative; display:flex; flex-direction:column; flex:1; }
 .dashboard-glow{
   position:absolute; width:775px; height:367px;
@@ -612,6 +613,16 @@ body::before{
   overflow:hidden; background:#0a0e1a; min-height:520px;
 }
 .figma-embed{ width:100%; height:min(72vh, 680px); border:0; display:block; }
+.canva-embed-wrap{
+  min-height:min(78vh, 820px);
+}
+.canva-embed{
+  width:100%;
+  height:min(78vh, 820px);
+  border:0;
+  display:block;
+  background:#0a0e1a;
+}
 .embed-note{ margin-top:12px; font-size:13px; }
 .embed-note a{ color:var(--cyan); text-decoration:none; }
 .embed-note a:hover{ text-decoration:underline; }
@@ -858,6 +869,8 @@ a.cta-btn{ text-decoration:none; display:flex; }
   .instagram-feed-frame iframe{ height:min(68vh, 720px); }
   .link-card{ flex-direction:column; padding:22px; }
   .figma-embed{ height:min(60vh, 520px); }
+  .canva-embed-wrap{ min-height:min(62vh, 560px); }
+  .canva-embed{ height:min(62vh, 560px); }
 }
 
 /* Desktop grande 1920+ */

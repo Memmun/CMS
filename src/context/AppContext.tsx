@@ -64,7 +64,7 @@ function calcProgress(items: ContenidoItem[]): ProgressData {
 
 export function AppProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<string | null>(null);
-  const [section, setSection] = useState<SectionId>('dashboard');
+  const [section, setSection] = useState<SectionId>('home');
   const [contenido, setContenido] = useState<ContenidoItem[]>(initialContenido);
   const [toast, setToast] = useState<string | null>(null);
   const [modalTipo, setModalTipo] = useState<ModuleTipo | null>(null);
@@ -96,7 +96,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
     setAccountOpen(false);
     setModalTipo(null);
     setPreviewModule(null);
-    setSection('dashboard');
+    setSection('home');
   }, []);
 
   const toggleItem = useCallback((id: string) => {

@@ -1,5 +1,6 @@
 export type SectionId =
-  | 'dashboard'
+  | 'home'
+  | 'bitacora'
   | 'video-demo'
   | 'visados'
   | 'afiches'
@@ -7,7 +8,8 @@ export type SectionId =
   | 'instagram';
 
 export const SECTIONS: SectionId[] = [
-  'dashboard',
+  'home',
+  'bitacora',
   'video-demo',
   'afiches',
   'app',
@@ -113,13 +115,20 @@ export const INSTAGRAM = {
 };
 
 export const NAV_ITEMS: { id: SectionId; label: string; icon: string; mobileLabel?: string }[] = [
-  { id: 'dashboard', label: 'Bitácora', icon: 'icon-bitacora.svg' },
+  { id: 'home', label: 'Home', icon: 'icon-home.svg' },
+  { id: 'bitacora', label: 'Bitácora', icon: 'icon-bitacora.svg' },
   { id: 'video-demo', label: 'Video Demo', icon: 'icon-video-demo.svg', mobileLabel: 'Video' },
   { id: 'afiches', label: 'Afiches', icon: 'icon-afiches.svg' },
   { id: 'app', label: 'App', icon: 'icon-app.svg' },
   { id: 'visados', label: 'Visados', icon: 'icon-visados.svg' },
   { id: 'instagram', label: 'Instagram', icon: 'icon-instagram.svg' },
 ];
+
+export const BITACORA = {
+  title: 'Bitácora MEMUN',
+  url: 'https://canva.link/memun',
+  embed: 'https://www.canva.com/design/DAHNIA8twGw/qzSBIDqfYgCBWElcVp5e4Q/view?embed',
+};
 
 export const VIDEO_DEMO = {
   title: 'MEMUN — Narrativa transmedia',
