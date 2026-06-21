@@ -65,6 +65,43 @@ export const EXTERNAL_LINKS = {
   wiki: 'https://gonzalorceccato.github.io/wikimemun/#',
 } as const;
 
+export const MODULE_PREVIEWS = {
+  novela: {
+    title: 'Novelas Gráficas',
+    subtitle: 'Cómics oficiales MEMUN',
+    kind: 'iframe' as const,
+    src: EXTERNAL_LINKS.novela,
+    externalUrl: EXTERNAL_LINKS.novela,
+    frameTitle: 'Novelas Gráficas MEMUN',
+  },
+  juego: {
+    title: 'Videojuego',
+    subtitle: 'Demo en video',
+    kind: 'youtube' as const,
+    src: 'https://www.youtube.com/embed/CdGfFPssCts',
+    externalUrl: EXTERNAL_LINKS.juego,
+    frameTitle: 'Demo del videojuego MEMUN',
+  },
+  wiki: {
+    title: 'Wikimemun',
+    subtitle: 'Historia oficial',
+    kind: 'iframe' as const,
+    src: EXTERNAL_LINKS.wiki,
+    externalUrl: EXTERNAL_LINKS.wiki,
+    frameTitle: 'Wikimemun',
+  },
+} satisfies Record<
+  ModuleTipo,
+  {
+    title: string;
+    subtitle: string;
+    kind: 'iframe' | 'youtube';
+    src: string;
+    externalUrl: string;
+    frameTitle: string;
+  }
+>;
+
 export const INSTAGRAM = {
   profile: 'https://www.instagram.com/memun.mavi2/',
   username: 'memun.mavi2',

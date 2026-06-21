@@ -619,6 +619,39 @@ a.cta-btn{ text-decoration:none; display:flex; }
 .modal-head .anton{ overflow-wrap:anywhere; }
 .modal-close{ cursor:pointer; color:var(--beige); font-size:18px; line-height:1; flex-shrink:0; }
 .modal-close:hover{ color:#e08070; }
+
+.modal-content-preview{
+  width:100%;
+  max-width:min(960px, 100%);
+  max-height:90vh;
+  padding:0;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+}
+.modal-content-preview .modal-head{
+  padding:20px 24px 16px;
+  margin-bottom:0;
+  border-bottom:1px solid var(--line);
+}
+.modal-content-preview .modal-body{
+  flex:1;
+  min-height:0;
+  overflow:auto;
+  padding:16px 24px 20px;
+  -webkit-overflow-scrolling:touch;
+}
+.content-preview-video{ border-radius:12px; }
+.content-preview-frame{ min-height:min(72vh, 680px); }
+.content-preview-iframe{
+  width:100%;
+  height:min(72vh, 680px);
+  border:0;
+  display:block;
+  background:#0a0e1a;
+}
+.content-preview-note{ margin-top:14px; margin-bottom:0; }
+
 .item-row{
   display:flex; align-items:center; justify-content:space-between;
   gap:12px; padding:13px 0; border-bottom:1px solid var(--line);
@@ -709,6 +742,11 @@ a.cta-btn{ text-decoration:none; display:flex; }
 
   .modal-overlay{ padding:14px; }
   .modal{ max-height:88vh; padding:22px 18px; }
+  .modal-content-preview{ max-height:92vh; padding:0; }
+  .modal-content-preview .modal-head{ padding:18px 18px 14px; }
+  .modal-content-preview .modal-body{ padding:14px 18px 18px; }
+  .content-preview-frame{ min-height:min(58vh, 560px); }
+  .content-preview-iframe{ height:min(58vh, 560px); }
   .modal-head .anton{ font-size:18px !important; }
   .cta-btn{ min-height:72px; }
   .cta-btn-icon{ width:56px; height:56px; }
@@ -726,6 +764,11 @@ a.cta-btn{ text-decoration:none; display:flex; }
   .cta-btn-icon{ width:48px; height:48px; }
   .footer-note{ flex-direction:column; align-items:flex-start; padding:12px 16px; }
   .modal{ max-height:92vh; padding:18px 14px; }
+  .modal-content-preview{ padding:0; }
+  .modal-content-preview .modal-head{ padding:16px 14px 12px; }
+  .modal-content-preview .modal-body{ padding:12px 14px 16px; }
+  .content-preview-frame{ min-height:min(52vh, 480px); }
+  .content-preview-iframe{ height:min(52vh, 480px); }
   .poster-grid, .video-grid{ grid-template-columns:1fr; }
   .instagram-feed-grid{ grid-template-columns:1fr; }
   .instagram-profile-bar{ flex-direction:column; align-items:flex-start; }

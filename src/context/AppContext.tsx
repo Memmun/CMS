@@ -28,6 +28,7 @@ interface AppContextValue {
   progress: ProgressData;
   toast: string | null;
   modalTipo: ModuleTipo | null;
+  previewModule: ModuleTipo | null;
   accountOpen: boolean;
   login: (username: string, password: string) => string | null;
   logout: () => void;
@@ -35,6 +36,8 @@ interface AppContextValue {
   setAccountOpen: (open: boolean) => void;
   openModal: (tipo: ModuleTipo) => void;
   closeModal: () => void;
+  openPreview: (tipo: ModuleTipo) => void;
+  closePreview: () => void;
   toggleItem: (id: string) => void;
   showToast: (msg: string) => void;
   showComingSoon: (msg?: string) => void;
@@ -65,6 +68,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [contenido, setContenido] = useState<ContenidoItem[]>(initialContenido);
   const [toast, setToast] = useState<string | null>(null);
   const [modalTipo, setModalTipo] = useState<ModuleTipo | null>(null);
+  const [previewModule, setPreviewModule] = useState<ModuleTipo | null>(null);
   const [accountOpen, setAccountOpen] = useState(false);
 
   const progress = useMemo(() => calcProgress(contenido), [contenido]);
@@ -91,6 +95,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
     setUser(null);
     setAccountOpen(false);
     setModalTipo(null);
+    setPreviewModule(null);
     setSection('dashboard');
   }, []);
 
@@ -120,6 +125,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
     progress,
     toast,
     modalTipo,
+    previewModule,
     accountOpen,
     login,
     logout,
@@ -127,6 +133,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
     setAccountOpen,
     openModal: setModalTipo,
     closeModal: () => setModalTipo(null),
+    openPreview: setPreviewModule,
+    closePreview: () => setPreviewModule(null),
     toggleItem,
     showToast,
     showComingSoon: (msg) => showToast(msg || 'Contenido próximamente disponible.'),

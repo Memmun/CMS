@@ -1,9 +1,9 @@
 import { useApp } from '@/context/AppContext';
-import { EXTERNAL_LINKS } from '@/data/content';
 import { asset } from '@/lib/utils';
 
 export function DashboardSection() {
-  const { getModuleMeta } = useApp();
+  const { getModuleMeta, openPreview } = useApp();
+
   return (
     <section id="section-dashboard">
       <div className="dashboard-glow" />
@@ -25,14 +25,10 @@ export function DashboardSection() {
                 Explorá los cómics oficiales de MEMUN. Historias ilustradas que revelan nuevas perspectivas.
               </p>
               <div className="module-meta">{getModuleMeta('novela')}</div>
-              <a
-                className="cta-btn"
-                href={EXTERNAL_LINKS.novela}
-                target="_blank"
-                rel="noopener noreferrer"
-              >                <span className="cta-btn-label">VER</span>
+              <button type="button" className="cta-btn" onClick={() => openPreview('novela')}>
+                <span className="cta-btn-label">VER</span>
                 <img className="cta-btn-icon" src={asset('assets/icon-arrow-cta.svg')} alt="" />
-              </a>
+              </button>
             </div>
           </div>
         </div>
@@ -49,15 +45,11 @@ export function DashboardSection() {
                 Viví la experiencia interactiva. Tomá decisiones, completá misiones y desbloqueá recuerdos.
               </p>
               <div className="module-meta">{getModuleMeta('juego')}</div>
-              <a
-                className="cta-btn"
-                href={EXTERNAL_LINKS.juego}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <button type="button" className="cta-btn" onClick={() => openPreview('juego')}>
                 <span className="cta-btn-label">JUGAR</span>
                 <img className="cta-btn-icon" src={asset('assets/icon-arrow-cta.svg')} alt="" />
-              </a>            </div>
+              </button>
+            </div>
           </div>
         </div>
 
@@ -73,14 +65,10 @@ export function DashboardSection() {
                 Accedé a la historia oficial de MEMUN. Explorá aldeas, personajes, tecnología y más.
               </p>
               <div className="module-meta">{getModuleMeta('wiki')}</div>
-              <a
-                className="cta-btn"
-                href={EXTERNAL_LINKS.wiki}
-                target="_blank"
-                rel="noopener noreferrer"
-              >                <span className="cta-btn-label">EDITAR</span>
+              <button type="button" className="cta-btn" onClick={() => openPreview('wiki')}>
+                <span className="cta-btn-label">EDITAR</span>
                 <img className="cta-btn-icon" src={asset('assets/icon-arrow-cta.svg')} alt="" />
-              </a>
+              </button>
             </div>
           </div>
         </div>
