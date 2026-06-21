@@ -1,16 +1,26 @@
 import { SparklesCore } from '@/components/ui/sparkles';
 
-export function SparklesBackground() {
+type SparklesBackgroundProps = {
+  id?: string;
+  mode?: 'fixed' | 'embedded';
+};
+
+export function SparklesBackground({
+  id = 'tsparticlesfullpage',
+  mode = 'fixed',
+}: SparklesBackgroundProps) {
+  const isEmbedded = mode === 'embedded';
+
   return (
-    <div className="sparkles-bg" aria-hidden="true">
-      <div className="sparkles-bg-inner">
+    <div className={isEmbedded ? 'app-sparkles' : 'sparkles-bg'} aria-hidden="true">
+      <div className={isEmbedded ? 'app-sparkles-inner' : 'sparkles-bg-inner'}>
         <SparklesCore
-          id="tsparticlesfullpage"
+          id={id}
           background="transparent"
           minSize={0.6}
           maxSize={1.4}
           particleDensity={100}
-          className="sparkles-core"
+          className="w-full h-full"
           particleColor="#FFFFFF"
         />
       </div>

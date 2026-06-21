@@ -15,8 +15,14 @@ function MemunApp() {
           <div className="login-backdrop-overlay" />
         </div>
       )}
-      <SparklesBackground />
-      {!user ? <LoginScreen /> : <AppShell />}
+      {!user ? (
+        <>
+          <SparklesBackground id="tsparticles-login" />
+          <LoginScreen />
+        </>
+      ) : (
+        <AppShell />
+      )}
       <ModuleModal />
       <ContentPreviewModal />
       <Toast />

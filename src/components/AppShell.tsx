@@ -4,6 +4,7 @@ import { INSTAGRAM, NAV_ITEMS, VISADOS } from '@/data/content';
 import { asset } from '@/lib/utils';
 import { DashboardSection } from '@/components/sections/DashboardSection';
 import AnimatedProgressBar from '@/components/ui/smoothui/animated-progress-bar';
+import { SparklesBackground } from '@/components/SparklesBackground';
 
 declare global {
   interface Window {
@@ -127,6 +128,7 @@ export function AppShell() {
 
   return (
     <div id="app-screen" style={{ display: 'block' }}>
+      <SparklesBackground id="tsparticles-dashboard" mode="embedded" />
       <div className="app-frame">
         <aside className="sidebar">
           <div className="sidebar-glow sidebar-glow-top" />
