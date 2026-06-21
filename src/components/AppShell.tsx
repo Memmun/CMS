@@ -3,6 +3,7 @@ import { useApp } from '@/context/AppContext';
 import { INSTAGRAM, NAV_ITEMS, VISADOS } from '@/data/content';
 import { asset } from '@/lib/utils';
 import { DashboardSection } from '@/components/sections/DashboardSection';
+import AnimatedProgressBar from '@/components/ui/smoothui/animated-progress-bar';
 
 declare global {
   interface Window {
@@ -13,7 +14,6 @@ declare global {
 function HeroBanner({ title, subtitle }: { title: string; subtitle: string }) {
   return (
     <div className="hero-banner">
-      <div className="hero-glow" />
       <div className="hero-title">{title}</div>
       <div className="hero-sub">{subtitle}</div>
     </div>
@@ -177,9 +177,12 @@ export function AppShell() {
                   <span>Avance Total</span>
                   <b>{progress.totalPct}%</b>
                 </div>
-                <div className="pill-track">
-                  <div className="pill-fill" style={{ width: `${progress.totalPct}%` }} />
-                </div>
+                <AnimatedProgressBar
+                  className="smooth-progress-bar"
+                  barClassName="smooth-progress-bar-fill"
+                  value={progress.totalPct}
+                  color="var(--cyan)"
+                />
               </div>
 
               <div className="stat-pill">
@@ -189,9 +192,12 @@ export function AppShell() {
                     <span>Verdad sobre Memun</span>
                     <b id="pct-verdad">{progress.verdadPct}%</b>
                   </div>
-                  <div className="stat-track">
-                    <div className="stat-fill" style={{ width: `${progress.verdadPct}%`, background: 'var(--magenta)' }} />
-                  </div>
+                  <AnimatedProgressBar
+                    className="smooth-progress-bar"
+                    barClassName="smooth-progress-bar-fill"
+                    value={progress.verdadPct}
+                    color="var(--magenta)"
+                  />
                 </div>
               </div>
 
@@ -202,9 +208,12 @@ export function AppShell() {
                     <span>Memoria personal</span>
                     <b id="pct-personal">{progress.personalPct}%</b>
                   </div>
-                  <div className="stat-track">
-                    <div className="stat-fill" style={{ width: `${progress.personalPct}%`, background: 'var(--cyan)' }} />
-                  </div>
+                  <AnimatedProgressBar
+                    className="smooth-progress-bar"
+                    barClassName="smooth-progress-bar-fill"
+                    value={progress.personalPct}
+                    color="var(--cyan)"
+                  />
                 </div>
               </div>
 
